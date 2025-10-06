@@ -14,11 +14,18 @@ import os
 # Создаем экземпляр Flask приложения
 app = Flask(__name__)
 
-# Настраиваем подключение к базе данных SQLite
-# База данных будет создана в файле barbershop.db в корне проекта
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///barbershop.db'
+# Настраиваем подключение к базе данных
+# Для продакшена используем PostgreSQL, для разработки SQLite
+if os.environ.get('DATABASE_URL'):
+    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
+else:
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///barbershop.db'
+
 # Отключаем отслеживание изменений для оптимизации производительности
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+# Настройка секретного ключа для сессий
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'dev-secret-key-change-in-production')
 
 # Инициализируем SQLAlchemy для работы с базой данных
 db = SQLAlchemy(app)
@@ -205,7 +212,9 @@ def update_client_status(client_id):
 with app.app_context():
     db.create_all()
 
-# Запуск Flask приложения в режиме отладки
-# debug=True включает автоматическую перезагрузку при изменении кода
+# Запуск Flask приложения
+# В продакшене debug=False, в разработке debug=True
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 5000))
+    debug = os.environ.get('FLASK_ENV') != 'production'
+    app.run(host='0.0.0.0', port=port, debug=debug)

@@ -168,11 +168,12 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('../images/barbershop1.jpg');
+    background-image: url('/static/images/barbershop2.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     z-index: 1;
+    filter: grayscale(100%) contrast(1.2);
 }
 
 .hero-bg-image::before {
@@ -182,95 +183,37 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.4);
     z-index: 2;
-}
-
-.hero-logo-bg {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-    opacity: 0.1;
-    pointer-events: none;
-}
-
-.hero-logo {
-    width: 500px;
-    height: auto;
-    filter: brightness(0) invert(1);
-    animation: logoFloat 6s ease-in-out infinite;
-    opacity: 0.2;
-    border-radius: 20px;
-    box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
-}
-
-@keyframes logoFloat {
-    0%, 100% {
-        transform: translateY(0px);
-    }
-    50% {
-        transform: translateY(-20px);
-    }
 }
 
 .hero-content {
     position: relative;
     z-index: 3;
     text-align: center;
-    max-width: 800px;
+    max-width: 1000px;
     padding: 0 20px;
 }
 
-.hero-brand {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-    font-family: 'Playfair Display', serif;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-    letter-spacing: 2px;
-}
-
-.hero-logo-under {
-    margin: 1.5rem 0;
-    display: flex;
-    justify-content: center;
-}
-
-.hero-logo-under-img {
-    width: 120px;
-    height: auto;
-    border-radius: 15px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease;
-}
-
-.hero-logo-under-img:hover {
-    transform: scale(1.05);
-}
-
 .hero-title {
-    font-size: 3.5rem;
-    font-weight: 700;
+    font-size: 5rem;
+    font-weight: 900;
     color: var(--white);
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     font-family: 'Playfair Display', serif;
-    line-height: 1.2;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-}
-
-.highlight {
-    color: var(--primary-color);
+    line-height: 1.1;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9);
+    letter-spacing: 3px;
+    text-transform: uppercase;
 }
 
 .hero-subtitle {
-    font-size: 1.3rem;
+    font-size: 1.8rem;
     color: #f0f0f0;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
     font-weight: 300;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    letter-spacing: 1px;
 }
 
 .hero-buttons {
@@ -297,12 +240,18 @@ body {
 .btn-primary {
     background: var(--primary-color);
     color: var(--white);
+    font-size: 1.2rem;
+    padding: 15px 40px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(212, 163, 115, 0.4);
 }
 
 .btn-primary:hover {
     background: #b8860b;
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(212, 163, 115, 0.6);
 }
 
 .btn-secondary {
@@ -828,24 +777,13 @@ section {
         left: 0;
     }
 
-    .hero-logo {
-        width: 350px;
-    }
-
-    .hero-brand {
-        font-size: 1.2rem;
-    }
-
-    .hero-logo-under-img {
-        width: 100px;
-    }
-
     .hero-title {
-        font-size: 2.5rem;
+        font-size: 3rem;
+        letter-spacing: 2px;
     }
 
     .hero-subtitle {
-        font-size: 1.1rem;
+        font-size: 1.3rem;
     }
 
     .hero-buttons {
@@ -893,20 +831,13 @@ section {
 }
 
 @media (max-width: 480px) {
-    .hero-logo {
-        width: 280px;
-    }
-
-    .hero-brand {
-        font-size: 1rem;
-    }
-
-    .hero-logo-under-img {
-        width: 80px;
-    }
-
     .hero-title {
-        font-size: 2rem;
+        font-size: 2.2rem;
+        letter-spacing: 1px;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
     }
 
     .btn {

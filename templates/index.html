@@ -13,7 +13,7 @@
     <title>BarberTime - Мужская парикмахерская</title>
     
     <!-- Подключение CSS стилей -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}?v=4">
     
     <!-- Подключение Google Fonts для красивого шрифта -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
@@ -54,26 +54,15 @@
     <section id="home" class="hero">
         <!-- Фоновое изображение барбершопа -->
         <div class="hero-bg-image"></div>
-        <!-- Декоративный логотип на фоне -->
-        <div class="hero-logo-bg">
-            <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="BarberTime" class="hero-logo">
-        </div>
         <!-- Основной контент главной секции -->
         <div class="hero-content">
-            <!-- Брендинговая надпись -->
-            <div class="hero-brand">BarberTime</div>
             <!-- Главный заголовок -->
-            <h1 class="hero-title">Добро пожаловать в BarberTime</h1>
-            <!-- Логотип под заголовком -->
-            <div class="hero-logo-under">
-                <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="BarberTime" class="hero-logo-under-img">
-            </div>
+            <h1 class="hero-title">ДОБРО ПОЖАЛОВАТЬ</h1>
             <!-- Подзаголовок с описанием -->
-            <p class="hero-subtitle">Где каждый мужчина становится джентльменом</p>
-            <!-- Кнопки действий -->
+            <p class="hero-subtitle">В мир настоящего мужского стиля</p>
+            <!-- Кнопка записи -->
             <div class="hero-buttons">
-                <button class="btn btn-primary" onclick="scrollToSection('services')">Наши услуги</button>
-                <button class="btn btn-secondary" onclick="openBookingModal()">Записаться</button>
+                <button class="btn btn-primary" onclick="openBookingModal()">Записаться</button>
             </div>
         </div>
     </section>
